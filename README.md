@@ -3,6 +3,8 @@
 ## 📌 Project Overview
 This is a **Personal Portfolio and Blog Website** built using **Next.js**. The project serves as a personal portfolio to showcase skills, projects, and blog posts while also featuring an authentication-protected dashboard for content management.
 
+## LiveSite: https://next-portfolio-bay.vercel.app/
+
 ## 🎯 Features
 
 ### 🌍 Public Pages (Accessible to All Users)
