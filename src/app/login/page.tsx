@@ -1,10 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { signIn } from "next-auth/react";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 export type FormValues = {
@@ -13,45 +10,45 @@ export type FormValues = {
 };
 
 const LoginPage = () => {
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm<FormValues>({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   // formState: { errors },
+  // } = useForm<FormValues>({
+  //   defaultValues: {
+  //     email: "",
+  //     password: "",
+  //   },
+  // });
 
   //   const router = useRouter();
 
-  const onSubmit = async (data: FormValues) => {
-    console.log(data);
-    //   reset();
-    //   try {
-    //     const res = await loginUser(data);
-    //     console.log(res);
-    //     if (res.accessToken) {
-    //       alert(res.message);
-    //       localStorage.setItem("accessToken", res.accessToken);
-    //       router.push("/");
-    //     }
-    //   } catch (err: any) {
-    //     console.error(err.message);
-    //     throw new Error(err.message);
-    //   }
-  };
+  // const onSubmit = async (data: FormValues) => {
+  //   console.log(data);
+  //   reset();
+  //   try {
+  //     const res = await loginUser(data);
+  //     console.log(res);
+  //     if (res.accessToken) {
+  //       alert(res.message);
+  //       localStorage.setItem("accessToken", res.accessToken);
+  //       router.push("/");
+  //     }
+  //   } catch (err: any) {
+  //     console.error(err.message);
+  //     throw new Error(err.message);
+  //   }
+  // };
 
   return (
-    <section className="container mx-auto my-10 border rounded py-5 shadow-lg w-1/3">
+    <section className="container mx-auto my-60 border rounded py-5 shadow-lg w-1/3">
       <div>
         <h1 className="text-4xl font-semibold text-center">Login</h1>
         <span className="w-20 h-1 mx-auto bg-teal-500 rounded block"></span>
       </div>
       <div>
         <div>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 px-10 mx-auto py-10">
+          {/* <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 px-10 mx-auto py-10">
             <div>
               <label htmlFor="email" className="text-sm font-medium">
                 Email
@@ -90,12 +87,12 @@ const LoginPage = () => {
             </Link>
           </p>
 
-          <p className="text-center mt-6 text-sm text-gray-500">Or Sign Up Using</p>
+          <p className="text-center mt-6 text-sm text-gray-500">Or Sign Up Using</p> */}
 
           {/* Social Login Buttons */}
-          <div className="flex justify-center gap-4 mt-4">
+          <div className=" justify-center gap-4 mt-4 space-y-5 px-5 ">
             <Button
-              className="flex items-center justify-center w-12 h-12  rounded-full shadow-md bg-teal-500"
+              className="flex items-center justify-center h-12  w-full shadow-md bg-teal-500"
               onClick={() =>
                 signIn("google", {
                   callbackUrl: "https://next-portfolio-bay.vercel.app/dashboard",
@@ -105,7 +102,7 @@ const LoginPage = () => {
               <FaGoogle />
             </Button>
             <Button
-              className="flex items-center justify-center w-12 h-12 rounded-full shadow-md bg-teal-500"
+              className="flex items-center justify-center h-12 w-full shadow-md bg-teal-500"
               onClick={() =>
                 signIn("github", {
                   callbackUrl: "https://next-portfolio-bay.vercel.app/dashboard",

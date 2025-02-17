@@ -19,7 +19,7 @@ const ContactPage = () => {
   };
 
   return (
-    <section className="container mx-auto my-10">
+    <section className="container mx-auto my-10 px-4 sm:px-6 lg:px-8">
       <div className="mt-4">
         <h1 className="text-4xl font-semibold text-center">Contact</h1>
         <span className="w-20 h-1 mx-auto bg-teal-500 rounded block"></span>
@@ -37,6 +37,7 @@ const ContactPage = () => {
                 id="name"
                 name="name"
                 className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primaryColor"
+                required
               />
             </div>
             <div>
@@ -49,6 +50,7 @@ const ContactPage = () => {
                 id="email"
                 name="email"
                 className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primaryColor"
+                required
               />
             </div>
             <div className="xl:col-span-2">
@@ -59,6 +61,7 @@ const ContactPage = () => {
                 className="border border-gray-300 rounded-md px-4 py-2 w-full h-32 focus:outline-none focus:ring-2 focus:ring-primaryColor"
                 placeholder="Write your message"
                 name="message"
+                required
               ></Textarea>
             </div>
             <div className="xl:col-span-2">

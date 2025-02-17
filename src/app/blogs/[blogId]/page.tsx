@@ -5,11 +5,6 @@ import { getServerSession } from "next-auth";
 import Image from "next/image";
 import { AiFillLike } from "react-icons/ai";
 
-//   return blogs.slice(0, 3).map((blog: Blog) => ({
-//     blogId: blog.id,
-//   }));
-// };
-
 export async function generateMetadata({ params }: { params: Promise<{ blogId: string }> }) {
   const { blogId } = await params;
 
@@ -30,45 +25,53 @@ const BlogDetailsPage = async ({ params }: { params: Promise<{ blogId: string }>
   const res = await fetch(`${process.env.Base_Url}/blog/${blogId}`);
   const blog = await res.json();
 
-  //   console.log(blog);
-
   return (
-    <section className="my-10">
-      <div className="my-4">
-        <h1 className="text-4xl font-semibold text-center">{blog.title}</h1>
-        <span className="w-20 h-1 mx-auto bg-teal-500 rounded block"></span>
+    <section className="my-10 px-4 sm:px-6 lg:px-8">
+      <div className="my-4 text-center">
+        <h1 className="text-3xl sm:text-4xl font-semibold">{blog.title}</h1>
+        <span className="w-20 h-1 mx-auto bg-teal-500 rounded block mt-2"></span>
       </div>
-      <div className="w-2/3 shadow-lg rounded-lg mx-auto p-6">
-        <div className="flex justify-between mb-5">
-          <div className="flex items-center py-2 rounded-lg gap-2">
-            <Image src="https://cdn-icons-png.flaticon.com/512/219/219986.png" width={30} height={30} alt="author image" />
-            <span className="text-lg font-medium">{blog.author_name}</span>
-          </div>
-        </div>
-        <figure className="mb-5">
-          <Image src={blog.blog_image} width={600} height={0} alt="blog image" className="rounded-lg w-2/3 object-cover" />
-        </figure>
-        <div className="text-lg leading-relaxed">
-          <p className="text-justify">{blog.description}</p>
-        </div>
-        <div className="flex justify-between items-center my-5">
-          <div className="flex items-center text-xl">
-            <AiFillLike className="text-teal-500 mr-2" />
-            <span className="mr-1">{blog.total_likes}</span>
-            Likes
+
+      <div className="w-full sm:w-2/3 mx-auto shadow-lg rounded-lg p-6">
+        {/* Author and Meta Data */}
+        <div className="flex justify-between mb-5 flex-wrap items-center">
+          <div className="flex items-center gap-2">
+            <Image src="https://cdn-icons-png.flaticon.com/512/219/219986.png" width={30} height={30} alt="author image" className="rounded-full" />
+            <span className="text-lg font-medium text-gray-700 dark:text-gray-300">{blog.author_name}</span>
           </div>
         </div>
 
-        {session?.user ? (
+        {/* Blog Image */}
+        <figure className="mb-5">
+          <Image src={blog.blog_image} width={600} height={400} alt="blog image" className="rounded-lg w-full sm:w-2/3 object-cover mx-auto" />
+        </figure>
+
+        {/* Blog Content */}
+        <div className="text-lg leading-relaxed">
+          <p className="text-justify text-gray-700 dark:text-gray-300">{blog.description}</p>
+        </div>
+
+        {/* Likes */}
+        <div className="flex justify-between items-center my-5">
+          <div className="flex items-center text-xl text-gray-700 dark:text-gray-300">
+            <AiFillLike className="text-teal-500 mr-2" />
+            <span className="mr-1">{blog.total_likes}</span> Likes
+          </div>
+        </div>
+
+        {/* Admin Actions (Delete Blog) */}
+        {session?.user && (
           <form
             action={async () => {
               "use server";
               await deleteBlog(blogId);
             }}
           >
-            <Button type="submit">Delete</Button>
+            <Button type="submit" className="w-full sm:w-auto mt-4">
+              Delete
+            </Button>
           </form>
-        ) : undefined}
+        )}
       </div>
     </section>
   );

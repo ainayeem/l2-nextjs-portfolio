@@ -22,14 +22,16 @@ export const generateStaticParams = async () => {
 const FeaturedProject = async () => {
   const res = await fetch(`${process.env.Base_Url}/project`);
   const projects = await res.json();
-  //   console.log(projects);
+
   return (
-    <section>
-      <div>
-        <h1 className="text-4xl font-semibold text-center">Featured Projects</h1>
-        <span className="w-20 h-1 mx-auto bg-teal-500 rounded block"></span>
+    <section className="px-6 md:px-12 py-16">
+      <div className="text-center">
+        <h1 className="text-4xl font-semibold">Featured Projects</h1>
+        <span className="w-20 h-1 mx-auto bg-teal-500 rounded block mt-2"></span>
       </div>
-      <div className="flex gap-10 justify-center my-10">
+
+      {/* Responsive Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mt-10">
         {projects.slice(0, 2).map((project: TProject) => (
           <ProjectCard key={project._id} project={project} />
         ))}
