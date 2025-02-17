@@ -28,10 +28,10 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
   ];
 
   return (
-    <nav className="flex items-center justify-between p-4 border-b container mx-auto">
+    <nav className="flex items-center justify-between p-4 lg:px-0 border-b container mx-auto">
       <div className="flex items-center">
         <Link href="/" className="text-xl font-bold text-teal-500">
-          &lt;<span className="text-black dark:text-white">Nayeem</span> /&gt;
+          &lt; <span className="text-black dark:text-white">Nayeem</span> /&gt;
         </Link>
       </div>
       {/* Mobile Menu */}

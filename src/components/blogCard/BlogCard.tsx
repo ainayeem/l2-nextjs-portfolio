@@ -1,13 +1,12 @@
 import { TBlog } from "@/app/blogs/page";
 import Image from "next/image";
 import Link from "next/link";
-import { AiFillLike } from "react-icons/ai";
 
 const BlogCard = ({ blog }: { blog: TBlog }) => {
   return (
     <div className="shadow-md rounded-lg overflow-hidden">
       <figure>
-        <Image src={blog.blog_image} width={600} height={100} alt="blog image" className="rounded-t-lg h-64 object-cover w-full" />
+        <Image src={blog.blogImage} width={600} height={100} alt="blog image" className="rounded-t-lg h-64 object-cover w-full" />
       </figure>
       <div className="p-6">
         <h2 className="text-xl font-bold mt-4">{blog.title.length > 30 ? blog.title.slice(0, 30) + "..." : blog.title}</h2>
@@ -28,11 +27,7 @@ const BlogCard = ({ blog }: { blog: TBlog }) => {
                 className="object-cover"
               />
             </div>
-            <span className="text-sm font-medium text-gray-500">{blog.author_name}</span>
-          </div>
-          <div className="flex items-center text-sm text-gray-700">
-            <AiFillLike className="text-teal-600 text-xl mr-1" />
-            {blog.total_likes} Likes
+            <span className="text-sm font-medium text-gray-500">{blog.authorName}</span>
           </div>
         </div>
       </div>

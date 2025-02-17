@@ -5,29 +5,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Form from "next/form";
-import { toast } from "sonner";
 
 const DashboardProjectPage = () => {
   const handleSubmit = async (formData: FormData) => {
-    try {
-      await createProject(formData);
-      toast.success("Project Created");
-    } catch (error) {
-      console.log("🚀 ~ handleSubmit ~ error:", error);
-      toast.error("Failed. Please try again.");
-    }
+    await createProject(formData);
   };
 
   return (
-    <div>
-      <div>
-        <h1 className="text-4xl font-semibold text-center">Create Project</h1>
+    <div className="min-h-screen py-6 px-4 sm:px-8">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl sm:text-4xl font-semibold">Create Project</h1>
         <span className="w-20 h-1 mx-auto bg-teal-500 rounded block"></span>
       </div>
-      <div className="w-2/3">
-        <Form action={handleSubmit} className="space-y-8 px-10 mx-auto py-10">
+
+      <div className="w-full sm:w-2/3 lg:w-1/2 mx-auto">
+        <Form action={handleSubmit} className="space-y-5 sm:px-10 py-8 rounded-lg">
           <div>
-            <label htmlFor="title" className="text-sm font-medium">
+            <label htmlFor="title" className="text-sm sm:text-base font-medium">
               Title
             </label>
             <Input
@@ -35,49 +29,53 @@ const DashboardProjectPage = () => {
               placeholder="Enter title"
               id="title"
               name="title"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primaryColor"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+              required
             />
           </div>
 
           <div>
-            <label htmlFor="tools" className="text-sm font-medium">
+            <label htmlFor="tools" className="text-sm sm:text-base font-medium">
               Tools
             </label>
             <Input
               type="text"
-              placeholder="Enter tools (comma separated)"
+              placeholder="Enter tools-comma separate"
               id="tools"
               name="tools"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primaryColor"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+              required
             />
           </div>
 
           <div>
-            <label htmlFor="details" className="text-sm font-medium">
+            <label htmlFor="details" className="text-sm sm:text-base font-medium">
               Description
             </label>
             <Textarea
-              className="border border-gray-300 rounded-md px-4 py-2 w-full h-32 focus:outline-none focus:ring-2 focus:ring-primaryColor"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full h-32 focus:outline-none focus:ring-2 focus:ring-teal-500"
               placeholder="Write description"
               name="details"
+              required
             />
           </div>
 
           <div>
-            <label htmlFor="image" className="text-sm font-medium">
-              Blog Image Link
+            <label htmlFor="image" className="text-sm sm:text-base font-medium">
+              Project Image Link
             </label>
             <Input
               type="text"
-              placeholder="Enter blog image link"
+              placeholder="Enter project image link"
               id="image"
               name="image"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primaryColor"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+              required
             />
           </div>
 
           <div>
-            <label htmlFor="repository" className="text-sm font-medium">
+            <label htmlFor="repository" className="text-sm sm:text-base font-medium">
               Repository Link
             </label>
             <Input
@@ -85,12 +83,13 @@ const DashboardProjectPage = () => {
               placeholder="Enter repository link"
               id="repository"
               name="repository"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primaryColor"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+              required
             />
           </div>
 
           <div>
-            <label htmlFor="liveLink" className="text-sm font-medium">
+            <label htmlFor="liveLink" className="text-sm sm:text-base font-medium">
               Live Link
             </label>
             <Input
@@ -98,12 +97,15 @@ const DashboardProjectPage = () => {
               placeholder="Enter live site link"
               id="liveLink"
               name="liveLink"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primaryColor"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-teal-500"
+              required
             />
           </div>
 
           <div className="xl:col-span-2">
-            <Button type="submit">Create Blog</Button>
+            <Button type="submit" className="w-full sm:w-auto py-3 bg-teal-500 text-white rounded-md hover:bg-teal-600">
+              Create Project
+            </Button>
           </div>
         </Form>
       </div>

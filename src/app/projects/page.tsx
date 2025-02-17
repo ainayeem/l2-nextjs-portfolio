@@ -6,7 +6,7 @@ const ProjectsPage = async () => {
   const projects = await res.json();
 
   return (
-    <section className="my-10 px-6 md:px-12 lg:px-20">
+    <section className="my-10 px-6 md:px-0 lg:container lg:mx-auto">
       {/* Title Section */}
       <div className="text-center">
         <h1 className="text-3xl md:text-4xl font-semibold">Projects</h1>

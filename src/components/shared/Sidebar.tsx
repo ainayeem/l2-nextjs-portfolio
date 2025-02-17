@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BiSolidMessageDetail } from "react-icons/bi";
 import { FaHome, FaPencilAlt } from "react-icons/fa";
 import { PiProjectorScreenChartFill } from "react-icons/pi";
 
@@ -23,20 +24,26 @@ const Sidebar = () => {
       icon: <PiProjectorScreenChartFill className="h-5 w-5" />,
       label: "Projects",
     },
+    {
+      href: "/dashboard/view-message",
+      icon: <BiSolidMessageDetail className="h-5 w-5" />,
+      label: "Messages",
+    },
   ];
 
   return (
-    <div className="min-h-screen p-4 rounded-xl">
+    <div className="min-h-screen p-2 lg:p-4 rounded-xl">
       <ul className="space-y-4">
         {sidebarItems.map((item) => (
           <li key={item.href}>
             <Link
               href={item.href}
-              className={`flex items-center space-x-2 p-3 rounded-md transition-colors ${
-                pathname === item.href ? "text-teal-500 font-bold border-b-2 border-teal-500" : "dark:text-white hover:bg-teal-500 hover:text-white"
-              }`}
+              className={`flex items-center rounded-md transition-colors 
+            text-sm sm:text-base md:text-lg lg:text-xl
+            ${pathname === item.href ? "text-teal-500 font-bold border-teal-500" : "dark:text-white hover:bg-teal-500 hover:text-white"}
+          `}
             >
-              {item.icon}
+              <span className="hidden sm:inline-block sm:mr-3">{item.icon}</span>
               <span>{item.label}</span>
             </Link>
           </li>

@@ -9,7 +9,7 @@ import { Button } from "../ui/button";
 
 const Hero = () => {
   return (
-    <section className="gap-16 my-20 grid grid-cols-1 md:grid-cols-2 items-center text-center md:text-left px-6 md:px-12">
+    <section className="gap-16 my-20 grid grid-cols-1 md:grid-cols-2 text-center md:text-left px-6 lg:px-0">
       <div>
         <p className="font-normal text-xl md:text-2xl my-3">HELLO THERE!</p>
         <h1 className="font-semibold text-4xl md:text-6xl mt-6 md:mt-10">
@@ -61,7 +61,7 @@ const Hero = () => {
           </Link>
         </Button>
       </div>
-      <div className="m-auto mt-10 md:mt-0">
+      <div className="m-auto">
         <Image className="border-2 border-teal-500 rounded-md shadow-lg w-48 md:w-72" src={profile} width={300} height={300} alt="profile" />
       </div>
     </section>

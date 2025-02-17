@@ -41,58 +41,18 @@ const LoginPage = () => {
   // };
 
   return (
-    <section className="container mx-auto my-60 border rounded py-5 shadow-lg w-1/3">
+    <section className="container mx-auto my-auto sm:my-16 lg:my-32 border rounded py-5 shadow-lg w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3">
       <div>
         <h1 className="text-4xl font-semibold text-center">Login</h1>
         <span className="w-20 h-1 mx-auto bg-teal-500 rounded block"></span>
       </div>
       <div>
-        <div>
-          {/* <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 px-10 mx-auto py-10">
-            <div>
-              <label htmlFor="email" className="text-sm font-medium">
-                Email
-              </label>
-              <Input
-                {...register("email")}
-                type="email"
-                placeholder="Enter your email"
-                id="email"
-                name="email"
-                className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primaryColor"
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="text-sm font-medium">
-                Password
-              </label>
-              <Input
-                {...register("password")}
-                type="password"
-                placeholder="Enter your password"
-                id="password"
-                name="password"
-                className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primaryColor"
-              />
-            </div>
-
-            <Button className="bg-teal-500" type="submit">
-              Submit
-            </Button>
-          </form>
-          <p className="text-center mt-4 text-sm text-gray-600">
-            Don&apos;t have an account?{" "}
-            <Link href="/register" className="text-teal-500 hover:underline">
-              Create an account
-            </Link>
-          </p>
-
-          <p className="text-center mt-6 text-sm text-gray-500">Or Sign Up Using</p> */}
-
+        {/* Login Form */}
+        <div className="mt-6">
           {/* Social Login Buttons */}
-          <div className=" justify-center gap-4 mt-4 space-y-5 px-5 ">
+          <div className="flex flex-col gap-4 mt-4 space-y-5 px-5">
             <Button
-              className="flex items-center justify-center h-12  w-full shadow-md bg-teal-500"
+              className="flex items-center justify-center h-12 w-full shadow-md bg-teal-500"
               onClick={() =>
                 signIn("google", {
                   callbackUrl: "https://next-portfolio-bay.vercel.app/dashboard",

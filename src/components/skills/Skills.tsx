@@ -1,9 +1,8 @@
 import { AiOutlineHtml5, AiOutlinePython } from "react-icons/ai";
 import { FaNode, FaReact } from "react-icons/fa";
-import { GrMysql } from "react-icons/gr";
 import { IoLogoNodejs } from "react-icons/io";
-import { RiBootstrapLine, RiFirebaseLine, RiNextjsLine, RiTailwindCssLine } from "react-icons/ri";
-import { SiAntdesign, SiDaisyui, SiExpress, SiMongoose, SiPostgresql } from "react-icons/si";
+import { RiBootstrapLine, RiNextjsLine, RiTailwindCssLine } from "react-icons/ri";
+import { SiAntdesign, SiDaisyui, SiExpress, SiMongoose } from "react-icons/si";
 import { TbBrandCss3, TbBrandMongodb, TbBrandTypescript, TbCircleLetterC, TbCircleLetterF, TbCircleLetterM } from "react-icons/tb";
 
 const skills = [
@@ -25,9 +24,9 @@ const skills = [
   { name: "Express", icon: SiExpress },
   { name: "MongoDB", icon: TbBrandMongodb },
   { name: "Mongoose", icon: SiMongoose },
-  { name: "Firebase", icon: RiFirebaseLine },
-  { name: "MySQL", icon: GrMysql },
-  { name: "PostgreSQL", icon: SiPostgresql },
+  // { name: "Firebase", icon: RiFirebaseLine },
+  // { name: "MySQL", icon: GrMysql },
+  // { name: "PostgreSQL", icon: SiPostgresql },
 ];
 
 const Skills = () => {
@@ -38,20 +37,22 @@ const Skills = () => {
         <span className="w-20 h-1 mx-auto bg-teal-500 rounded block mt-2"></span>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 text-lg">
-        {skills.map((skill, index) => {
-          const Icon = skill.icon;
-          return (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center p-4 rounded-md shadow-md shadow-gray-200 dark:shadow-[#37383b] 
+      <div className="">
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 text-lg">
+          {skills.map((skill, index) => {
+            const Icon = skill?.icon || "span";
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center p-4 rounded-md shadow-md shadow-gray-200 dark:shadow-[#37383b] 
                          hover:scale-105 transition-transform duration-300 hover:bg-teal-500 hover:text-white"
-            >
-              <Icon size={40} />
-              <p className="mt-2 font-medium">{skill.name}</p>
-            </div>
-          );
-        })}
+              >
+                <Icon size={40} />
+                <p className="mt-2 font-medium">{skill.name}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

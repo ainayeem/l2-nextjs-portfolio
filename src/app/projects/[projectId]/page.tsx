@@ -37,7 +37,7 @@ const ProjectDetailsPage = async ({ params }: { params: Promise<{ projectId: str
       <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg">
         {/* Project Image */}
         <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden">
-          <Image src={project.image} alt={project.title} width={800} height={700} className="object-cover w-full h-full" priority />
+          <Image src={project?.image} alt={project.title} width={800} height={700} className="object-cover w-full h-full" priority />
         </div>
 
         {/* Tools as Tags */}
