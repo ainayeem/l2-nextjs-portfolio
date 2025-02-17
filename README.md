@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Personal Portfolio & Blog with Next.js
 
-## Getting Started
+## 📌 Project Overview
+This is a **Personal Portfolio and Blog Website** built using **Next.js**. The project serves as a personal portfolio to showcase skills, projects, and blog posts while also featuring an authentication-protected dashboard for content management.
 
-First, run the development server:
+## 🎯 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🌍 Public Pages (Accessible to All Users)
+- **Home Page (`/`)**
+  - Display portfolio introduction (name, bio, profile picture).
+  - Showcase skills using icons or a skill bar.
+  - Highlight featured projects.
+  - Resume download button.
+- **Projects Page (`/projects`)**
+  - List of projects with images, descriptions, and links.
+  - Clicking on a project opens a detailed page (`/projects/[id]`).
+- **Blog Page (`/blog`)**
+  - Display a list of blogs (fetched from an API or JSON file).
+  - Clicking on a blog opens a detailed page (`/blog/[id]`).
+- **Contact Page (`/contact`)**
+  - Simple contact form (name, email, message).
+  - Save messages in local storage or a database.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔒 Dashboard (Only for Logged-in Users)
+- **Login (`/dashboard`)**
+  - Social login using NextAuth.
+  - Only authenticated users can access the dashboard.
+- **Blog Management (`/dashboard/blogs`)**
+  - CRUD (Create, Read, Update, Delete) blog posts.
+  - Form with fields like title, content, image, and category.
+- **Project Management (`/dashboard/projects`)**
+  - CRUD operations for projects.
+  - Upload project image, title, live link, descriptions, etc.
+- **Message Management (`/dashboard/messages`)**
+  - View messages submitted from the contact form.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tech Stack
+- **Frontend:** Next.js, React, Tailwind CSS
+- **Authentication:** NextAuth
+- **Database:** MongoDB 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
